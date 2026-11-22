@@ -1,0 +1,10 @@
+mon: rajesh done with vcf lld draft docs.. sent to client, waiting their nod
+mon: 4 esxi hsots racked in dc-1, firmware update 8.0u2 done by sunita
+tue: vsan disk group creation faild on node 3.. anil lookin into it.. bad drive maybe??
+tue: bloker: firwall ports 443 n 902 not opend by netwk team.. cant join vcenter. vikram chasing
+wed: client happy with dr design presentation today!! went well
+wed: risktight timeline for san fabric zoning.. might delay 22 Dec target date
+thu: anil replaced the faulty nvme drive in node 3, vsan rebuild finished ok
+thu: cert renewal done for nsx manager
+fri: nxt wk plannin to start workload domain build and prep client demo on thu
+fri: still no creds for active directory service acct.. escalated to it helpdesk

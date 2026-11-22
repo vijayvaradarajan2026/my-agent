@@ -1,0 +1,10 @@
+Mon: Rahul fixed the duplicate charge bug in the prepaid billing run (BILL-311), deployed to test
+Mon: 3 enterprise customers complained about late invoices this month
+Tue: new GST rule changes from 1 Jan, tax team has not shared the final rates yet
+Tue: invoice generation now takes 2 hours instead of 5 after the batch tuning
+Wed: blocked on test data, the masked customer copy from the data team is 2 weeks old
+Wed: Anjali started the customer self-service bill download page
+Thu: the payment partner API will change its format on 15 Dec, we have not started the changes
+Thu: regression suite 212 of 230 tests passing, 18 failures all in the discounts module
+Fri: next week Anjali finishes the bill download page and we demo it to the product owner
+Fri: Rahul is the only person who knows the discounts module and is on leave from 18 Dec

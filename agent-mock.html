@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Status Report Agent - Simulation</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #1e3a8a;
+      --primary-hover: #1e40af;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --amber-bg: #fffbeb;
+      --amber-text: #92400e;
+      --amber-border: #f59e0b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-bottom: 24px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 190px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: #fafafa;
+      resize: vertical;
+      margin-bottom: 18px;
+      outline: none;
+      line-height: 1.5;
+    }
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+      background: #ffffff;
+    }
+    button {
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    button:hover {
+      background: var(--primary-hover);
+    }
+    button:active {
+      transform: scale(0.99);
+    }
+    #outputArea {
+      display: none;
+      animation: fadeIn 0.35s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--amber-bg);
+      color: var(--amber-text);
+      border: 1px solid var(--amber-border);
+      margin-bottom: 12px;
+    }
+    .report-section {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .report-section:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+    .report-section h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .report-section p {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .report-section ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .report-section li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    .report-section li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .tag {
+      font-size: 0.78rem;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      font-weight: 500;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 32px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Weekly Status Report Agent</h1>
+      <p class="subtitle">Turn a week of rough engineering notes into a concise, executive-ready status report for management.</p>
+    </header>
+
+    <div class="card">
+      <label for="notesInput">Paste this week's rough team updates:</label>
+      <textarea id="notesInput" placeholder="Paste stand-up notes, Jira tickets, or deployment updates...">Mon: Rajesh finished the High-Level Design (HLD) document for the 16-node VMware Cloud Foundation management domain (INFRA-201), client praised the architecture
+Mon: Sunita finished deploying 8 ESXi hosts in datacenter rack DC2-R04, all firmware upgraded to version 8.0
+Tue: completed vSAN ESA storage tier configuration on Cluster-A with 40 TB raw capacity, 12 health checks passed
+Tue: waiting on approval from network security team for NSX-T edge tier-0 firewall rules, Vikram to follow up
+Wed: hardware vendor may slip delivery of 4 Top-of-Rack switches by a week, could affect 15 Dec go-live
+Wed: client review workshop with enterprise architecture team went well, all 5 design principles signed off
+Thu: Anil stuck on an NSX-T overlay geneve packet drop in INFRA-209, cannot reproduce it in the lab
+Thu: fixed two LLD configuration defects reported by validation team (INFRA-205, INFRA-206)
+Fri: next week we plan to start workload domain automated commissioning and prepare the backup demo for Thursday
+Fri: no access to vCenter production service account yet, request raised with IAM team</textarea>
+      <button id="generateBtn" onclick="showReport()">Generate Weekly Status Report</button>
+    </div>
+
+    <div id="outputArea" class="card">
+      <span class="badge">Overall Status: Amber (At Risk)</span>
+
+      <div class="report-section">
+        <h3>1. Executive Summary</h3>
+        <p>Core infrastructure foundation deployment progressed ahead of schedule with 8 ESXi hosts and vSAN ESA storage validated. However, overall delivery is <strong>Amber</strong> due to pending NSX-T firewall approvals and a potential 1-week hardware switch delivery delay threatening the 15 Dec go-live.</p>
+      </div>
+
+      <div class="report-section">
+        <h3>2. Key Highlights & Milestones Completed</h3>
+        <ul>
+          <li>High-Level Design (HLD) for the 16-node VCF management domain (INFRA-201) signed off by client. <span class="tag">Rajesh</span></li>
+          <li>Deployed 8 ESXi hosts in rack DC2-R04 with firmware 8.0 validated. <span class="tag">Sunita</span></li>
+          <li>Configured 40 TB raw capacity vSAN ESA storage tier across Cluster-A; all 12 health checks passed.</li>
+          <li>Resolved two LLD configuration review defects (INFRA-205, INFRA-206).</li>
+        </ul>
+      </div>
+
+      <div class="report-section">
+        <h3>3. Risks & Blockers (Action Required)</h3>
+        <ul>
+          <li><strong>Blocker:</strong> NSX-T edge tier-0 firewall rule approval is pending with security team. <span class="tag">Vikram to follow up</span></li>
+          <li><strong>Blocker:</strong> Production service account access for vCenter integration not granted. <span class="tag">Ticket raised with IAM</span></li>
+          <li><strong>Risk:</strong> Hardware vendor switch delivery may slip by 1 week, impacting the 15 Dec go-live milestone. <span class="tag">Mitigation needed</span></li>
+          <li><strong>Technical Issue:</strong> NSX-T overlay geneve packet drops on ESXi host (INFRA-209). <span class="tag">Anil investigating</span></li>
+        </ul>
+      </div>
+
+      <div class="report-section">
+        <h3>4. Decisions Needed from Management</h3>
+        <ul>
+          <li>Escalate IAM service account approval to avoid stalling management domain commissioning.</li>
+          <li>Review vendor contingency schedule if the 4 Top-of-Rack switches slip past 15 Dec.</li>
+        </ul>
+      </div>
+
+      <div class="report-section">
+        <h3>5. Plan for Next Week</h3>
+        <ul>
+          <li>Initiate automated commissioning of workload domains.</li>
+          <li>Conduct management backup and disaster recovery validation demo (scheduled for Thursday).</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      Simulation only. The real agent comes tomorrow.
+    </footer>
+  </div>
+
+  <script>
+    function showReport() {
+      const output = document.getElementById("outputArea");
+      output.style.display = "block";
+      output.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>

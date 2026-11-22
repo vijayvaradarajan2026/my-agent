@@ -1,0 +1,10 @@
+Mon: Kavya moved 14 of 20 internal apps to AWS, the remaining 6 need database changes first
+Mon: the old data centre contract ends on 31 Jan, finance asked for a firm cut-over date
+Tue: load test on the HR portal passed, response time down from 4 seconds to 1.2 seconds
+Tue: waiting for the security team to approve the new firewall rules, Imran chasing
+Wed: the payroll app failed in staging because of an old Java version, Deepak investigating
+Wed: cloud bill for November came in 18% above the estimate, nobody owns the cost review yet
+Thu: Sunita finished the backup and restore runbook, reviewed by the operations team
+Thu: two engineers on leave next week, may slow down the last 6 apps
+Fri: next week we plan the payroll cut-over and a dry run on Saturday
+Fri: still no decision from the client on whether the reporting database moves in phase 1 or phase 2

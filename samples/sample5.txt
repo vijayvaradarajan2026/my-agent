@@ -1,0 +1,6 @@
+Mon: deployed some ESXi hosts in datacenter, but not all passed configuration checks
+Tue: critical blocker on storage connectivity, cannot provision any VMs
+Wed: project timeline is slipping and we will probably miss the milestone date
+Wed: client raised serious concerns about network security during the call
+Thu: someone is working on fixing the memory errors on the host
+Fri: next week we need to do testing and get things approved

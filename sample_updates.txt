@@ -1,0 +1,10 @@
+Mon: Rajesh finished the High-Level Design (HLD) document for the 16-node VMware Cloud Foundation management domain (INFRA-201), client praised the architecture
+Mon: Sunita finished deploying 8 ESXi hosts in datacenter rack DC2-R04, all firmware upgraded to version 8.0
+Tue: completed vSAN ESA storage tier configuration on Cluster-A with 40 TB raw capacity, 12 health checks passed
+Tue: waiting on approval from network security team for NSX-T edge tier-0 firewall rules, Vikram to follow up
+Wed: hardware vendor may slip the delivery of 4 Top-of-Rack switches by a week, could affect the 15 Dec go-live
+Wed: client review workshop with enterprise architecture team went well, all 5 design principles signed off
+Thu: Anil stuck on an NSX-T overlay geneve packet drop in INFRA-209, cannot reproduce it in the lab
+Thu: fixed two LLD configuration defects reported by the validation team (INFRA-205, INFRA-206)
+Fri: next week we plan to start workload domain automated commissioning and prepare the backup demo for Thursday
+Fri: no access to the vCenter production service account yet, request raised with IAM team
